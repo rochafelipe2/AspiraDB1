@@ -1,0 +1,32 @@
+﻿@model ProjetoWebRHDB1.Models.Entrevista.RankCandidatoModel
+@{
+    ViewBag.Title = "RankCandidato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    WebGrid Grid = new WebGrid(source: Model.RankCandidatos, rowsPerPage: 10);
+}
+
+<h2 style="text-align:center">Rank Candidato</h2>
+
+
+<div class="col-lg-12">
+    @if (Grid.Rows.Count > 0)
+    {
+        @Grid.GetHtml(
+             tableStyle: "table table-striped",
+
+            numericLinksCount: 7,
+            columns: Grid.Columns(
+            
+                    Grid.Column("Vaga", header: "Vaga", format: @<text>@item.Vaga</text>),
+                                                               Grid.Column("Candidato", header: "Candidato", format: @<text>@item.Candidado</text>),
+                                                                            Grid.Column("Peso", header: "Peso", format: @<text>@item.Posicao</text>)
+                                                                                                 )
+                                                                                                 )
+
+    }
+    else
+    {
+        <p>Ops. Não há registros.</p>
+    }
+
+</div>

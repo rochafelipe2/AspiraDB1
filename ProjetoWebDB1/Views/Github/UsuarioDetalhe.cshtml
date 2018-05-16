@@ -1,0 +1,51 @@
+﻿@model ProjetoWebDB1.Models.UsuarioDetail
+@{
+    ViewBag.Title = "UsuarioDetalhe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Usuario Detalhe</h2>
+
+
+<div>
+    @Html.LabelFor(x => x.id)
+    @Html.TextBoxFor(x => x.id)
+</div>
+
+<div>
+    @Html.LabelFor(x => x.login)
+    @Html.TextBoxFor(x => x.login)
+</div>
+
+<div>
+    @Html.LabelFor(x => x.dataCriacao)
+    @Html.TextBoxFor(x => x.dataCriacao)
+</div>
+
+
+@{
+    WebGrid Grid = new WebGrid(source: Model.repositorios, rowsPerPage: 8);
+}
+
+@if (Grid.Rows.Count > 0)
+{
+    @Grid.GetHtml(
+
+            headerStyle: "ui-widget-header",
+                            tableStyle: "web-grid-blue",
+            rowStyle: "",
+                    footerStyle: "",
+                    selectedRowStyle: "",
+            numericLinksCount: 7,
+            columns: Grid.Columns(
+                    Grid.Column("id", header: "ID", format: @<text>@item.id</text>),
+                    Grid.Column("nome", header: "NOME", format: @<text>@item.nome</text>),
+                    Grid.Column("url", header: "URL", format: @<text>@item.url</text>)
+                 )
+                   )
+}
+else
+{
+    <p>Não há registros.</p>
+}
+

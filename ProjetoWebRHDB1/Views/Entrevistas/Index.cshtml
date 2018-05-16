@@ -1,0 +1,116 @@
+﻿@model ProjetoWebRHDB1.Models.Entrevista.EntrevistaModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    WebGrid Grid = new WebGrid(source: Model.Entrevistas, rowsPerPage: 10);
+}
+
+<style>
+    #sortable1, #sortable2 {
+        border: 1px solid #eee;
+        width: 142px;
+        min-height: 20px;
+        list-style-type: none;
+        margin: 0;
+        padding: 5px 0 0 0;
+        float: left;
+        margin-right: 10px;
+    }
+
+        #sortable1 li, #sortable2 li {
+            margin: 0 5px 5px 5px;
+            padding: 5px;
+            font-size: 1.2em;
+            width: 120px;
+        }
+</style>
+
+<h2 style="text-align:center">Entrevistas</h2>
+
+
+
+<div class="col-lg-9">
+    <div class="form-group">
+
+        <button id="iniciar-entrevista" type="submit" class="btn">Iniciar entevista</button>
+    </div>
+
+</div>
+
+
+<div id="dialog-form-iniciar" title="Iniciar entrevista">
+
+    @using (@Html.BeginForm("IniciarEntrevista", "Entrevistas", FormMethod.Post, new { model = @Model }))
+    {
+        
+        @Html.HiddenFor(x => x.IDsTecnologiasCandidado)
+        <div class="col-lg-3">
+            @Html.LabelFor(x => x.Vagas)
+            @Html.DropDownListFor(model => model.VagaSelecionado, new SelectList(Model.Vagas, "ID", "Nome"), "Selecionar")
+        </div>
+
+        <div class="col-lg-3">
+            @Html.LabelFor(x => x.Candidatos)
+            @Html.DropDownListFor(model => model.CandidatoSelecionado, new SelectList(Model.Candidatos, "ID", "Nome"), "Selecionar")
+        </div>
+        <div>
+
+            @{
+                <ul id="sortable1" class="connectedSortable">
+                    @Html.LabelFor(x => x.Tecnologias)
+                    @foreach (var item in Model.Tecnologias)
+                    {
+                        <li class="ui-state-default" id="@item.ID">@item.Nome</li>
+                    }
+                </ul>
+            }
+
+
+
+
+
+            <ul id="sortable2" class="connectedSortable tecnologias-candidato">
+                @Html.LabelFor(x => x.TecnologiasCandidato)
+                @foreach (var item in Model.TecnologiasCandidato)
+                {
+                    <li class="ui-state-default" id="@item.ID">@item.Nome</li>
+                }
+            </ul>
+        </div>
+        <input type="submit" title="Salvar" value="Salvar" class="button-confirm" />
+
+    }
+</div>
+
+<div class="col-lg-12">
+    @if (Grid.Rows.Count > 0)
+    {
+        @Grid.GetHtml(
+             tableStyle: "table table-striped",
+
+            numericLinksCount: 7,
+            columns: Grid.Columns(
+            Grid.Column("ID", header: "ID", format: @<text>@item.ID</text>),
+                    Grid.Column("Candidato", header: "Candidato", format: @<text>@item.Candidato</text>),
+                                          Grid.Column("Vaga", header: "Vaga", format: @<text>@item.Vaga</text>),
+            Grid.Column("Editar", canSort: false, format: @<text><a href="@Url.Action("ContinuarEntrevista","Entrevistas",new{ id = item.ID})"> <img id="@item.ID" class="editar-candidato" title="Editar" src="~/Images/pesquisar.jpg" /></a></text>)
+                                                                                                )
+                                                                                                )
+
+    }
+    else
+    {
+        <p>Ops. Não há registros.</p>
+    }
+
+</div>
+
+@section scripts{
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/Content/themes/base/jquery-ui.css">
+    <script src="~/Scripts/jquery-ui-11.12.js"></script>
+    <script type="text/javascript" src="~/Scripts/RHDB1/Entrevista/Entrevista.js"></script>
+
+}

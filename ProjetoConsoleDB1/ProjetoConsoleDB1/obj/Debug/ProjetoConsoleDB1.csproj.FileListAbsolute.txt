@@ -1,0 +1,7 @@
+C:\Users\lipdi\documents\visual studio 2013\Projects\ProjetoConsoleDB1\ProjetoConsoleDB1\bin\Debug\ProjetoConsoleDB1.exe.config
+C:\Users\lipdi\documents\visual studio 2013\Projects\ProjetoConsoleDB1\ProjetoConsoleDB1\bin\Debug\ProjetoConsoleDB1.exe
+C:\Users\lipdi\documents\visual studio 2013\Projects\ProjetoConsoleDB1\ProjetoConsoleDB1\bin\Debug\ProjetoConsoleDB1.pdb
+C:\Users\lipdi\documents\visual studio 2013\Projects\ProjetoConsoleDB1\ProjetoConsoleDB1\bin\Debug\Octokit.dll
+C:\Users\lipdi\documents\visual studio 2013\Projects\ProjetoConsoleDB1\ProjetoConsoleDB1\bin\Debug\Octokit.xml
+C:\Users\lipdi\documents\visual studio 2013\Projects\ProjetoConsoleDB1\ProjetoConsoleDB1\obj\Debug\ProjetoConsoleDB1.exe
+C:\Users\lipdi\documents\visual studio 2013\Projects\ProjetoConsoleDB1\ProjetoConsoleDB1\obj\Debug\ProjetoConsoleDB1.pdb

@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoConsoleDB1", "ProjetoConsoleDB1\ProjetoConsoleDB1.csproj", "{972E20F5-DD56-4C70-812C-CD96F554DB07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoGitDB1", "..\ProjetoGitDB1\ProjetoGitDB1.csproj", "{4779CFC2-290E-4488-8BC0-22C7DBC4465E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoWebDB1", "..\ProjetoWebDB1\ProjetoWebDB1.csproj", "{3B2EC780-84C9-4061-AC5B-8BDF9ED62DD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoWebRHDB1", "..\ProjetoWebRHDB1\ProjetoWebRHDB1.csproj", "{0437263A-9C13-44A9-B19E-9D0406BC8C10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoWebRHDB1.Tests", "ProjetoWebRHDB1.Tests\ProjetoWebRHDB1.Tests.csproj", "{6EFEA0C0-FE4D-43A8-852B-865B3D239465}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F74C2528-D158-4372-9D8D-425A10E7BF40}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{972E20F5-DD56-4C70-812C-CD96F554DB07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{972E20F5-DD56-4C70-812C-CD96F554DB07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{972E20F5-DD56-4C70-812C-CD96F554DB07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{972E20F5-DD56-4C70-812C-CD96F554DB07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4779CFC2-290E-4488-8BC0-22C7DBC4465E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4779CFC2-290E-4488-8BC0-22C7DBC4465E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4779CFC2-290E-4488-8BC0-22C7DBC4465E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4779CFC2-290E-4488-8BC0-22C7DBC4465E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B2EC780-84C9-4061-AC5B-8BDF9ED62DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B2EC780-84C9-4061-AC5B-8BDF9ED62DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B2EC780-84C9-4061-AC5B-8BDF9ED62DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B2EC780-84C9-4061-AC5B-8BDF9ED62DD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0437263A-9C13-44A9-B19E-9D0406BC8C10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0437263A-9C13-44A9-B19E-9D0406BC8C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0437263A-9C13-44A9-B19E-9D0406BC8C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0437263A-9C13-44A9-B19E-9D0406BC8C10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EFEA0C0-FE4D-43A8-852B-865B3D239465}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EFEA0C0-FE4D-43A8-852B-865B3D239465}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EFEA0C0-FE4D-43A8-852B-865B3D239465}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EFEA0C0-FE4D-43A8-852B-865B3D239465}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

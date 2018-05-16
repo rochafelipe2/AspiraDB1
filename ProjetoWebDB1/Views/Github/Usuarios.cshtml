@@ -1,0 +1,27 @@
+﻿@model ProjetoWebDB1.Models.UsuariosModel
+@{
+    ViewBag.Title = "Usuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    WebGrid Grid = new WebGrid(source: Model.Usuarios, rowsPerPage: 8);
+}
+
+<h2>Usuarios</h2>
+
+@if (Grid.Rows.Count > 0)
+{
+    @Grid.GetHtml(
+                    footerStyle: "",
+                    selectedRowStyle: "",
+            numericLinksCount: 7,
+            columns: Grid.Columns(
+                    Grid.Column("id", header: "ID", format: @<text>@item.id</text>),
+                    Grid.Column("login", header: "LOGIN", format: @<text>@item.login</text>),
+                    Grid.Column("Visualizar", canSort: false, format: @<text><a href="@Url.Action("UsuarioDetalhe", "Github", new { login = item.login })">
+                                                                                 <img id="" class="visualizar-cartela" title="Visualizar" src="~/Images/pesquisar.jpg" />
+                                                                             </a></text>)
+               ))
+}
+else
+{
+    <p>Não há registros.</p>
+}

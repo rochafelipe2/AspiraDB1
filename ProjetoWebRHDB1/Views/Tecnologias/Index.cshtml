@@ -1,0 +1,85 @@
+﻿@model ProjetoWebRHDB1.Models.Tecnologia.TecnologiaModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    WebGrid Grid = new WebGrid(source: Model.Tecnologias, rowsPerPage: 10);
+}
+
+
+
+<h2 style="text-align:center">Tecnologias</h2>
+
+<div class="col-lg-9">
+    <div class="form-group">
+
+        <button id="create-tecno" type="submit" class="btn">Adicionar</button>
+    </div>
+
+</div>
+
+<div class="col-lg-12">
+    @if (Grid.Rows.Count > 0)
+    {
+        @Grid.GetHtml(
+             tableStyle: "table table-striped",
+
+            numericLinksCount: 7,
+            columns: Grid.Columns(
+            Grid.Column("ID", header: "ID", format: @<text>@item.ID</text>),
+                    Grid.Column("Nome", header: "Nome", format: @<text>@item.Nome</text>),
+            Grid.Column("Editar", canSort: false, format: @<text><img id="@item.ID" class="editar-tecno" title="Editar" src="~/Images/pesquisar.jpg" /></text>),
+         Grid.Column("Excluir", canSort: false, format: @<text><a href="@Url.Action("Remover", "Tecnologias", new { ID = item.ID })" onclick="return confirm('Deseja remover tecnologia?') ">
+                <img id="@item.ID" class="" title="Visualizar" src="~/Images/excluir.png" />
+            </a></text>)
+                                                                                                )
+                                                                                                )
+
+    }
+    else
+    {
+        <p>Ops. Não há registros.</p>
+    }
+
+</div>
+
+<div id="dialog-form-add" title="Nova Tecnologia">
+
+    @using (@Html.BeginForm("Adicionar", "Tecnologias", FormMethod.Post, @Model))
+    {
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.TecnologiaNova.Nome)
+            @Html.TextBoxFor(x => x.TecnologiaNova.Nome, new { @placeholder = "Nome", @class = "form-control" })
+        </div>
+
+        <input type="submit" title="Salvar" value="Salvar" class="button-confirm" />
+
+    }
+</div>
+
+<div id="dialog-form-edit" title="Editar Tecnologia">
+    @using (@Html.BeginForm("Atualizar", "Tecnologias", FormMethod.Post, new { model = @Model }))
+    {
+
+        <div class="form-group">
+            @Html.HiddenFor(x => x.TecnologiaEdite.ID)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.TecnologiaEdite.Nome)
+            @Html.TextBoxFor(x => x.TecnologiaEdite.Nome, new { @placeholder = "Nome", @class = "form-control" })
+        </div>
+
+
+        <input type="submit" title="Salvar" value="Salvar" class="button-confirm" />
+    }
+
+</div>
+
+@section scripts{
+    @*<link rel="stylesheet" href="~/Content/Style.css">*@
+    <link rel="stylesheet" href="~/Content/themes/base/jquery-ui.css">
+    <script src="~/Scripts/jquery-ui-11.12.js"></script>
+    <script type="text/javascript" src="~/Scripts/RHDB1/Tecnologia/Tecnologia.js"></script>
+
+}

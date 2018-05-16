@@ -1,0 +1,53 @@
+﻿@model ProjetoWebRHDB1.Models.Entrevista.ContinuarEntrevistaModel
+@{
+    ViewBag.Title = "ContinuarEntrevista";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Continuar Entrevista</h2>
+
+
+@using (@Html.BeginForm("ContinuarEntrevista", "Entrevistas", FormMethod.Post, new { model = @Model }))
+{
+    @Html.HiddenFor(x => x.IDCandidato)
+    @Html.HiddenFor(x => x.IDVaga)
+    <div class="col-lg-3">
+        @Html.LabelFor(x => x.Vaga)
+        @Html.TextBoxFor(x => x.Vaga, new { @placeholder = "Vaga", @class = "form-control", disabled = "disabled" })
+    </div>
+
+    <div class="col-lg-3">
+        @Html.LabelFor(x => x.Candidato)
+        @Html.TextBoxFor(x => x.Candidato, new { @placeholder = "Vaga", @class = "form-control", disabled = "disabled" })
+    </div>
+    <br />
+    <table class=" form-control">
+        <tr>
+            <th>
+                    @Html.Label("Tecnologia")
+            </th>
+            <th>
+                @Html.Label("Peso")
+            </th>
+        </tr>
+        @for(int i = 0; i < Model.TecnologiasPeso.Count;i++)
+        {
+            <tr>
+                <td>
+                    @Html.HiddenFor(x => Model.TecnologiasPeso[i].ID)
+                    @Html.HiddenFor(x => Model.TecnologiasPeso[i].IDEntrevista)
+                    @Html.HiddenFor(x => Model.TecnologiasPeso[i].IDTecnologia)
+                        @Html.TextBoxFor(x => Model.TecnologiasPeso[i].Tecnologia, new { @placeholder = "Tec", @class = "form-control", disabled = "disabled" })
+                </td>
+                <td>
+                        @Html.TextBoxFor(x => Model.TecnologiasPeso[i].Peso, new { @placeholder = "Peso", @class = "form-control"  })
+                </td>
+            </tr>
+       
+
+      
+        }
+    </table>
+    <input type="submit" title="Salvar" value="Salvar" class="button-confirm" />
+
+}
